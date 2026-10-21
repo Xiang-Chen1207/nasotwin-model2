@@ -1,0 +1,42 @@
+{
+  "entrance_native_mm": [
+    9.0,
+    3.0,
+    -9.0
+  ],
+  "yaw_deg": 10.0,
+  "cone_full_angle_deg": 10.0,
+  "rr_characteristic_diameter_um": 100.0,
+  "speed_m_s": 15.0,
+  "depth_min_mm": 0,
+  "depth_max_mm": 15,
+  "depth_step_mm": 1,
+  "parcels": 10000,
+  "seeds": [
+    7717,
+    8831,
+    9941
+  ],
+  "flight_time_s": 0.3,
+  "maximum_time_step_s": 5e-05,
+  "endpoint": "standard ROI deposited liquid volume / total emitted liquid volume",
+  "zero_definition": "Observed zero: all three feasible seeded simulations record zero standard-ROI hits.",
+  "depth_definition": "Distance along the nozzle axis from the fixed virtual entrance reference; negative depths are exterior positions.",
+  "pitch_min_deg": 30,
+  "pitch_max_deg": 50,
+  "pitch_step_deg": 2.5,
+  "depth_scope": "Insertion-depth range evaluated in the project scan.",
+  "coarse_pitch_deg": [
+    30.0,
+    32.5,
+    35.0,
+    37.5,
+    40.0,
+    42.5,
+    45.0,
+    47.5,
+    50.0
+  ],
+  "refine_pitch_step_deg": 2.5,
+  "refine_margin_deg": 0
+}

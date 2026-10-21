@@ -1,0 +1,72 @@
+{
+  "purpose": "Screen direct deposition in a fixed ROI, evaluate independent Monte Carlo seeds, and transfer deposited weights to the local mucus model.",
+  "baseline": {
+    "depth_mm": 15.0,
+    "pitch_deg": 40.0,
+    "yaw_deg": 0.0,
+    "rr_characteristic_diameter_um": 78.0,
+    "cone_full_angle_deg": 50.0,
+    "speed_m_s": 10.0
+  },
+  "search_values": {
+    "depth_mm": [
+      5.0,
+      10.0,
+      15.0
+    ],
+    "pitch_deg": [
+      30.0,
+      40.0,
+      50.0,
+      60.0
+    ],
+    "yaw_deg": [
+      -10.0,
+      0.0,
+      10.0
+    ],
+    "rr_characteristic_diameter_um": [
+      40.0,
+      60.0,
+      78.0
+    ],
+    "cone_full_angle_deg": [
+      10.0,
+      30.0,
+      50.0
+    ],
+    "speed_m_s": [
+      5.0,
+      10.0,
+      15.0
+    ]
+  },
+  "joint_candidates": 16,
+  "design_seed": 714,
+  "screen_parcels": 6000,
+  "screen_seed": 2026,
+  "confirm_parcels": 30000,
+  "confirm_seeds": [
+    3031,
+    4049,
+    5051
+  ],
+  "confirm_top_k": 3,
+  "flight_time_s": 0.3,
+  "maximum_time_step_s": 0.0001,
+  "mucus": {
+    "duration_s": 3600.0,
+    "output_frames": 121,
+    "velocity_m_s": 1.6666666666666667e-05
+  },
+  "parameter_status": {
+    "baseline_spray": "NC04 baseline spray parameters transferred from Shang 2021, DOI 10.1371/journal.pone.0246007.",
+    "search_values": "Design grid spanning insertion depth, pitch, yaw, characteristic diameter, cone angle, and initial speed.",
+    "roi": "Fixed narrow, standard, and wide coordinate envelopes. The standard ROI defines the ranking endpoint.",
+    "air_and_wall": "Quiescent air, one-way droplet transport, instantaneous release, and irreversible first-hit wall capture.",
+    "mucus_speed": "Local transport speed of 1 mm/min, with reference to Rigaut 2025, DOI 10.1016/j.ijpharm.2025.125392.",
+    "mucus_biology": "Transport and biology parameters from config.json, with shared baseline kinetics across four strains.",
+    "mucus_mapping": "Project standard-ROI hit coordinates along the posterior axis into a local strip with the same wall area as the labelled triangles. The ROI deposition defines the initial source.",
+    "replicates": "Independent random seeds quantify Monte Carlo variation in stratified, volume-weighted parcel simulations."
+  }
+}

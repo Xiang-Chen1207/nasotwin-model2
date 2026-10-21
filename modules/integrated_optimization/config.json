@@ -1,0 +1,21 @@
+{
+  "inputs": {
+    "retention": "../nasal/outputs/coupling/coupled_results.npz",
+    "metabolic_parameters": "../metabolic_exchange/results/integrated_parameters.json",
+    "pkpd_parameters": "../drug_delivery/pkpd_continuous_results/conditional_pkpd_results.json"
+  },
+  "reference_emitted_cfu": 1000000.0,
+  "evaluation_time_h": 24.0,
+  "targets": {"E01": 0.2, "E02": 0.2, "E03": 0.2, "E04": 0.2},
+  "metabolic_grid": {"ratio_step": 0.025, "dose_min": 0.25, "dose_max": 6.0, "dose_step": 0.05},
+  "productivity_nmol_per_cfu_h": {"NAC": null, "SFN": null},
+  "productivity_convention": "For a null productivity, q_ref = nominal required production amplitude / reference_emitted_cfu. A positive value sets q directly in nmol/(CFU*h).",
+  "metabolic_exposure_convention": "exposure_ref = reference_emitted_cfu * integral_0^1h WT_retention_per_emitted_CFU(t) dt, in CFU*h. Retained CFU divided by exposure_ref scales endpoint loss parameters to hourly rates.",
+  "scenario_interpretation": "Each scenario supplies deterministic pathway, retention, exposure, and production multipliers. eta_q and eta_n scale the Gln and nitrogen pathways; exposure_factor scales kappa. The common allocation must satisfy every configured scenario.",
+  "scenarios": [
+    {"name": "nominal", "label": "Nominal", "eta_q": 1.0, "eta_n": 1.0, "nh3_factor": 1.0, "exposure_factor": 1.0, "production_factor": 1.0, "nu": 1.0},
+    {"name": "reduced_activity", "label": "Reduced nitrogen activity", "eta_q": 1.0, "eta_n": 0.75, "nh3_factor": 1.0, "exposure_factor": 1.0, "production_factor": 1.0, "nu": 1.0},
+    {"name": "lower_exposure", "label": "Lower exposure mapping", "eta_q": 1.0, "eta_n": 1.0, "nh3_factor": 1.0, "exposure_factor": 0.5, "production_factor": 1.0, "nu": 1.0},
+    {"name": "combined_stress", "label": "Combined stress", "eta_q": 1.0, "eta_n": 0.75, "nh3_factor": 0.8, "exposure_factor": 0.5, "production_factor": 0.8, "nu": 1.0}
+  ]
+}

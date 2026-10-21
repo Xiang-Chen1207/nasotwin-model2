@@ -1,0 +1,81 @@
+{
+  "seed": 20261011,
+  "spray": {
+    "parcels": 1000,
+    "dv50_um": 50.0,
+    "sigma_g": 2.08,
+    "velocity_m_s": 18.0,
+    "half_angle_deg": 40.0,
+    "t_end_s": 0.5
+  },
+  "mucus": {
+    "length_m": 0.06,
+    "thickness_m": 1e-05,
+    "width_m": 0.02,
+    "nx": 120,
+    "nz": 12,
+    "velocity_m_s": 0.0001,
+    "diffusion_parallel_m2_s": 1e-13,
+    "diffusion_perpendicular_m2_s": 1e-13,
+    "duration_s": 3600.0,
+    "output_frames": 121
+  },
+  "biology": {
+    "attachment_reference_s": 600.0,
+    "attachment_Da": [
+      0.1,
+      1.0,
+      10.0
+    ],
+    "baseline_Da": 1.0,
+    "detachment_s_inv": 0.0002777777777777778,
+    "direct_attached_clearance_s_inv": 0.0
+  },
+  "strains": [
+    {
+      "name": "Gln",
+      "emitted_cfu": 1000000.0,
+      "post_spray_culturability": 1.0,
+      "net_growth_free_h_inv": 0.0,
+      "net_growth_attached_h_inv": 0.0,
+      "color": "#4DA3FF"
+    },
+    {
+      "name": "NHx",
+      "emitted_cfu": 1000000.0,
+      "post_spray_culturability": 1.0,
+      "net_growth_free_h_inv": 0.0,
+      "net_growth_attached_h_inv": 0.0,
+      "color": "#FFB45C"
+    },
+    {
+      "name": "SFN",
+      "emitted_cfu": 1000000.0,
+      "post_spray_culturability": 1.0,
+      "net_growth_free_h_inv": 0.0,
+      "net_growth_attached_h_inv": 0.0,
+      "color": "#47D7BA"
+    },
+    {
+      "name": "NAC",
+      "emitted_cfu": 1000000.0,
+      "post_spray_culturability": 1.0,
+      "net_growth_free_h_inv": 0.0,
+      "net_growth_attached_h_inv": 0.0,
+      "color": "#B995FF"
+    }
+  ],
+  "video": {
+    "duration_s": 64,
+    "fps": 15,
+    "width": 1600,
+    "height": 900
+  },
+  "parameter_notes": {
+    "spray_reference": "Calmet et al. 2019, DOI 10.1371/journal.pone.0221330: 18 m/s, 40 degree half angle, sigma_g 2.08, Dv50 cases 10-150 um; breath-hold condition. The idealized spray implementation uses Schiller-Naumann spherical drag.",
+    "mucus_reference": "Shang et al. 2021, DOI 10.1371/journal.pone.0246007: mucus gel thickness 10 um; mean main-passage transport 6 mm/min. The model uses uniform speed in a 60 mm strip and a 10 um accessible mucus layer.",
+    "scenario_parameters": "Geometry, dose, 10-150 um droplet truncation, diffusion, attachment Da, detachment, culturability, and growth define the simulation scenario. Four strains share the default biological parameters.",
+    "scope": "Breath-hold idealized spray, 2D x-z mucus transport, and reversible epithelial attachment, following Eq 2,5,13-15,17,21-22,31 of the design document.",
+    "growth_input": "One 47-point OD600 trajectory per WT, Lp-NAC, Lp-SFN, and Lp-Q on Sheet1 over 0-23.5008 h; each strain is one fitting unit. Fit the Logistic curve with smooth startup by nonlinear least squares. The post-deposition coupling uses the Logistic limit, including its initial growth rate, for startup times at or below 1e-6 h."
+  }
+}

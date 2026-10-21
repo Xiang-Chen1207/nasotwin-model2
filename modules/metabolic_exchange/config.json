@@ -1,0 +1,61 @@
+{
+  "source_table": "../../data/experimental/湿实验结果总表.md",
+  "reference": {
+    "initial_total_ammonia_mM": 4.0,
+    "initial_bcaa_mM": 0.2,
+    "initial_other_organic_n_mM_N": 10.0,
+    "gln_supplement_mM": 15.0,
+    "ammonia_release_per_gln": 1.0,
+    "bcaa_new_n_fraction_from_ammonia": 0.5,
+    "q_activity_transfer": 1.0,
+    "n_activity_transfer": 1.0,
+    "temperature_C": 30.0,
+    "pH": 6.5,
+    "ammonia_observation": "NH4",
+    "illustrative_endpoint_hours": null
+  },
+  "design": {
+    "q_fraction_points": 41,
+    "relative_exposure_min": 0.25,
+    "relative_exposure_max": 4.0,
+    "relative_exposure_points": 16,
+    "target_gln_removal_fraction": 0.2,
+    "max_peak_ammonia_to_initial": 1.05,
+    "max_endpoint_ammonia_to_initial": 1.0
+  },
+  "parameter_notes": {
+    "initial_total_ammonia_mM": "Reference starting pool: 4 mM. Sensitivity settings: 3.5 and 6 mM.",
+    "initial_bcaa_mM": "Reference baseline: 0.2 mM. Sensitivity settings: 0 and 0.4 mM.",
+    "initial_other_organic_n_mM_N": "Reference available organic nitrogen pool: 10 mM-N.",
+    "gln_supplement_mM": "E06 supplement: 15 mM. Basal Gln is estimated from E06.",
+    "ammonia_release_per_gln": "Glutaminase-pathway setting: 1 mol ammonia per mol Gln. Alternative settings: 0 and 0.5.",
+    "bcaa_new_n_fraction_from_ammonia": "Nitrogen-source allocation: 0.5. Sensitivity settings 0 and 1 each use recalibrated E07/E08 activities.",
+    "q_activity_transfer": "Scale factor from Gln-assay activity to the common simulation interval.",
+    "n_activity_transfer": "Scale factor from ammonia/BCAA-assay activity to the common simulation interval.",
+    "temperature_C": "Reference temperature for aqueous ammonia speciation: 30 C.",
+    "pH": "Fixed pH for ammonia speciation: 6.5.",
+    "ammonia_observation": "NH4 maps the E08 ammonium readout; TAN selects total ammonia.",
+    "illustrative_endpoint_hours": "Set the assay duration to express normalized time in hours; null retains normalized time.",
+    "design_thresholds": "Engineering targets: Gln removal >=20%, peak ammonia <=105% of its initial value, and endpoint ammonia <= its initial value."
+  },
+  "references": [
+    {
+      "id": "R1",
+      "title": "IUBMB EC 3.5.1.2: glutaminase",
+      "url": "https://iubmb.qmul.ac.uk/enzyme/EC3/5/1/2.html",
+      "use": "Glutaminase reaction stoichiometry: Gln + water -> Glu + ammonia."
+    },
+    {
+      "id": "R2",
+      "title": "IUBMB EC 2.6.1.42: branched-chain-amino-acid transaminase",
+      "url": "https://iubmb.qmul.ac.uk/enzyme/EC2/6/1/42.html",
+      "use": "Amino-nitrogen transfer and carbon-skeleton relationships in BCAA metabolism."
+    },
+    {
+      "id": "R3",
+      "title": "US EPA: Ammonia Toxicity, aqueous ammonia equilibrium",
+      "url": "https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=20008UJP.TXT",
+      "use": "Zero-salinity aqueous approximation: pKa=0.09018+2729.92/(temperature_C+273.2)."
+    }
+  ]
+}

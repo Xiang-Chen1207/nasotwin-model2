@@ -1,0 +1,87 @@
+{
+  "geometry": "nc04-surface.stl",
+  "native_units": "mm",
+  "native_axes": {
+    "X": "posterior",
+    "Y": "superior",
+    "Z": "lateral; positive toward viewer right in anterior view"
+  },
+  "annotation_type": "Anatomical coordinate envelopes defining the olfactory deposition ROI",
+  "references": [
+    "https://doi.org/10.1371/journal.pone.0246007",
+    "https://doi.org/10.1186/s12989-019-0290-8"
+  ],
+  "annotation_rationale": "Superior nasal roof and adjacent upper septal/lateral walls, behind the external face and anterior to the nasopharynx. Native-coordinate sagittal and coronal views define the envelopes. Three fixed Y thresholds provide narrow, standard, and wide ROI masks.",
+  "bounds_mm": {
+    "narrow": [
+      28,
+      75,
+      42,
+      60,
+      -10,
+      10
+    ],
+    "standard": [
+      28,
+      75,
+      40,
+      60,
+      -10,
+      10
+    ],
+    "wide": [
+      28,
+      75,
+      38,
+      60,
+      -10,
+      10
+    ]
+  },
+  "spray": {
+    "breathing": "Breath hold with prescribed quiescent background air",
+    "flow_l_min": 0,
+    "nozzle_tip_native_mm": [
+      16,
+      7,
+      -6
+    ],
+    "breakup_distance_mm": 2.5,
+    "release_radius_mm": 0.15,
+    "speed_m_s": 10,
+    "cone_full_angle_deg": 50,
+    "rr_characteristic_diameter_um": 78,
+    "rr_shape": 2.7,
+    "diameter_min_um": 1,
+    "diameter_max_um": 150,
+    "pitch_deg": [
+      10,
+      20,
+      30,
+      40,
+      50
+    ],
+    "yaw_deg": [
+      -10,
+      0,
+      10
+    ],
+    "pitch_definition": "Elevation from posterior +X toward superior +Y in native coordinates",
+    "yaw_definition": "Azimuth of the axis projection in the native XZ plane; positive toward +Z (medially for this negative-Z nostril)",
+    "nozzle_model": "Virtual point nozzle in the negative-Z nostril with a fixed tip and angle-dependent breakup plane",
+    "literature_parameters": [
+      "speed",
+      "cone angle",
+      "Rosin-Rammler characteristic diameter and shape",
+      "diameter truncation",
+      "breakup distance"
+    ],
+    "study_assumptions": [
+      "breath hold",
+      "tip location selected inside this geometry",
+      "0.15 mm release radius",
+      "pitch/yaw grid",
+      "point droplets and irreversible first-hit capture"
+    ]
+  }
+}

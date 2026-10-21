@@ -1,0 +1,4 @@
+-r requirements.txt
+
+# Additional dependencies for nasal transport, geometry and rendering.
+-r modules/nasal/requirements-3d.txt

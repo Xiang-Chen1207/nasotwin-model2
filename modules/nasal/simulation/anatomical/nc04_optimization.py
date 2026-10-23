@@ -250,7 +250,7 @@ def main():
         'mucus_handoffs': {}, 'mucus_all_seed_handoffs': [],
         'interpretation': [
             'Standard ROI is fixed. Narrow/wide masks assess annotation sensitivity only.',
-            'Screening winner is frozen before three independent confirmation seeds.',
+            'The automatically selected spray setting is fixed before three independent confirmation seeds.',
             'Independent Monte Carlo seeds describe numerical variation under the fixed model settings.',
             'Motion model: still-air droplets with gravity and Schiller-Naumann drag, integrated to first wall contact; deposited parcels supply the local mucus model.',
             'Nozzle: virtual point source satisfying the configured spatial path-clearance constraints.',

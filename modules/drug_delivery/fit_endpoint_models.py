@@ -235,7 +235,7 @@ def point_panel(ax, data, title, ylabel, fit=None, log_scale=False):
         grid = np.linspace(0, dose.max(), 200)
         ax.plot(grid, predict(fit["selected"], grid), color=color, lw=1.6, label="Fit")
     else:
-        ax.plot(dose, center, color=color, ls=":", lw=1, label="Guide only")
+        ax.plot(dose, center, color=color, ls=":", lw=1, label="Guide")
     ax.set(title=title, xlabel=f'{data[0]["drug"]} ({data[0]["dose_unit"].replace("uM", "μM")})',
            ylabel=ylabel)
     ax.set_xticks(dose)
@@ -247,7 +247,7 @@ def plot_jc1(ax, rows, drug):
     x, y = np.array([r["dose"] for r in data]), np.array([r["AM_ratio"] for r in data])
     grid = np.linspace(0, x.max(), 200)
     ax.plot(grid, PchipInterpolator(x, y, extrapolate=False)(grid),
-            color=COLORS[drug], ls="--", lw=1.3, label="Interpolation only")
+            color=COLORS[drug], ls="--", lw=1.3, label="Interpolation")
     ax.scatter(x, y, color=COLORS[drug], s=32, zorder=3)
     ax.axhline(y[0], color="#888888", lw=0.8, ls=":")
     ax.set(title=f"{drug} · BV2 · JC-1", ylabel="RED% / GREEN%",

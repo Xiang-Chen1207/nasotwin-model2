@@ -90,7 +90,7 @@ def observed_figures(obs, stats, gln, figures):
         axes[0].errorbar(data.added_gln_mM, data["mean"], yerr=data.sd,
                          fmt="o", ms=4, capsize=3, color=COLORS[strain])
     axes[0].set(xlabel="Added Gln (mM)", ylabel="Gln degraded (mM)",
-                title="Conditional endpoint fit")
+                title="Endpoint fit")
     axes[0].legend()
     a_wt = group_mean(obs, "E08", "WT")
     b_wt = group_mean(obs, "E07", "WT")
@@ -255,7 +255,7 @@ def write_results_report(gln, nitrogen, effects, curves, candidate, sensitivity,
         lines.append(f"| {row.experiment} | {row.added_gln_mM:g} | {row.engineered_strain} "
                      f"| {row.change_percent:+.2f}% | 组间终点差异 |")
     lines.extend([
-        "", "E05单位未确认，未纳入浓度动力学拟合。E07/E08同批同条件由用户确认，"
+        "", "Gln浓度动力学拟合使用E06；E05单位状态为待核对。E07/E08按已记录的同批同条件信息处理，"
         "R列按非配对观测汇总。氨指标定义为相对WT的残余氨变化，初始氨去除率使用其自身的基准定义。",
         "", "![实测终点](figures/01_measured_endpoints.png)", "",
         "图中点为全部观测值，黑线为均值±样本SD；n表示所列观测值数量，重复类型见实验记录。",
@@ -271,7 +271,7 @@ def write_results_report(gln, nitrogen, effects, curves, candidate, sensitivity,
         f"- 对10个E06原始数值的残差RMSE：{gln['rmse_mM']:.4f} mM。",
         "",
         "这些条件估计采用共同基础Gln、相同有效作用时长和一阶消耗假设。"
-        "模型使用两个补加水平校准有效作用系数，不估计Monod半饱和常数。",
+        "模型使用两个补加水平校准有效一阶作用系数；参数表列出本模型的拟合量。",
         "",
         "![终点拟合和联合表型](figures/02_endpoint_model_and_joint_phenotype.png)",
         "",
@@ -304,7 +304,7 @@ def write_results_report(gln, nitrogen, effects, curves, candidate, sensitivity,
         "",
         "## 4. 双菌配比与有效暴露的约束优化",
         "",
-        f"示例目标：Gln消耗≥{100*design['target_gln_removal_fraction']:g}%，"
+        f"设计约束：Gln消耗≥{100*design['target_gln_removal_fraction']:g}%，"
         f"总氨峰值≤初始值的{100*design['max_peak_ammonia_to_initial']:g}%，"
         f"终点总氨≤初始值的{100*design['max_endpoint_ammonia_to_initial']:g}%。"
         f"这些是本次仿真的工程约束。扫描相对暴露"
@@ -314,7 +314,7 @@ def write_results_report(gln, nitrogen, effects, curves, candidate, sensitivity,
         "再在相同最小暴露下最大化Gln消耗。最优性限定于该目标、参考条件和搜索网格。",
     ])
     if candidate is None:
-        lines.append("\n当前扫描范围内没有同时满足上述假设目标的组合。")
+        lines.append("\n当前扫描范围内没有同时满足上述设计约束的组合。")
     else:
         lines.extend([
             "",

@@ -269,7 +269,7 @@ def write_latex_report(report, out):
         "用于减小快速评价和最终积分之间数值误差的影响。"
         "各次最终方案再运行自适应代谢 ODE，包含氨峰驻点检查，"
         "并计算完整 PK--PD 轨迹。归一化向内余量用于控制数值评价与最终积分之间的误差。"
-        "比较仅覆盖参考情景，所选不利情景的原网格结果单独保留。\n"
+        "本比较评价参考情景；配置的不利情景另列其网格结果。\n"
     )
     (out / "ga_methods.tex").write_text(methods, encoding="utf-8")
     ratio = " : ".join(f"{100 * best['fractions'][s]:.3f}" for s in STRAINS)

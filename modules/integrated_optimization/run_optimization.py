@@ -396,7 +396,7 @@ def write_tables(result, out):
         write_latex_report(ga, out)
 
     lines = [r"\begin{table}[htbp]\centering\small",
-              r"\caption{预设参数扰动情景。表中列出代谢活性、保留、暴露映射与生产能力乘数；暴露因子只改变 $\kappa$，生产因子乘在固定参考比产率上。}",
+              r"\caption{配置的参数扰动情景。表中列出代谢活性、保留、暴露映射与生产能力乘数；暴露因子只改变 $\kappa$，生产因子乘在固定参考比产率上。}",
               r"\begin{tabular}{lrrrrr}\toprule",
               r"情景 & $\eta_G$ & $\eta_A$ & NH3保留 & 暴露映射 & 生产能力\\\midrule"]
     labels = {
@@ -419,7 +419,7 @@ def write_tables(result, out):
             values = [s["allocations_cfu"][key] / ref for key in STRAINS] + [s["total_cfu"] / ref]
             lines.append(labels[s["name"]] + " & " + " & ".join(f"{v:.4f}" for v in values) + r"\\")
         else:
-            lines.append(labels[s["name"]] + r" & \multicolumn{5}{c}{指定网格内无可行点}\\")
+            lines.append(labels[s["name"]] + r" & \multicolumn{5}{c}{搜索网格内无可行点}\\")
     lines += [r"\bottomrule\end{tabular}\end{table}",
               r"\begin{table}[htbp]\centering\scriptsize",
               r"\caption{参考情景下的完整功能输出。总量为参考剂量，氨为参考区室 mM，响应列为24 h降低比例。前三行同预算，GA 行使用其较低总量；四舍五入不改变按原始数值作出的达标判断。40:60 是代谢子群投放比例，不等同原模型二的有效活性比例。}",
@@ -480,7 +480,7 @@ def write_summary(result, out):
             values = [s["total_cfu"] / ref] + [s["allocations_cfu"][key] / ref for key in STRAINS]
             lines.append("| " + s["label"] + " | " + " | ".join(f"{x:.4f}" for x in values) + " |")
         else:
-            lines.append(f"| {s['label']} | 指定网格内无可行点 | — | — | — | — |")
+            lines.append(f"| {s['label']} | 搜索网格内无可行点 | — | — | — | — |")
     lines += ["", f"参考剂量：{ref:g} CFU。参考有效暴露："
               f"{result['reference']['exposure_ref_cfu_h']:.6g} CFU·h。", "",
               "| 分子 | 动态所需 q×喷出菌量（nmol/h） | 参考比产率（nmol/(CFU·h)） |",

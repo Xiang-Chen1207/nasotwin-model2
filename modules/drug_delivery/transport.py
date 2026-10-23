@@ -115,10 +115,10 @@ def simulate(boundary,p,*,mode,start,end,source=None,initial_nasal=None,method='
         ledger.append(total-initial)
     return dict(time_h=np.asarray(all_t),amounts=y,names=NAMES,ledger=np.asarray(ledger),
                 boundary_mode=mode,brain_free_uM=y[7:9]/p.V_brain,
-                interpretation='effective brain free-parent pool; physiology not inferred')
+                interpretation='model-defined effective brain free-parent compartment')
 
 def observation(result,variable):
     if variable=='brain_free_parent':return result['brain_free_uM']
     if variable in ['CSF','brain_homogenate','total14C','intracellular']:
-        raise EvidenceGap('No calibrated '+variable+' observation bridge; not interchangeable with free brain pool')
+        raise EvidenceGap('Required calibrated '+variable+' observation bridge; define a calibrated mapping from the free brain pool')
     raise ValueError(variable)

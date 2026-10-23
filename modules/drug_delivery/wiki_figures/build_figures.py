@@ -109,7 +109,7 @@ def pd_calibration():
                        label="Mean" if dose == 0 else None)
         grid = np.linspace(0, max(doses), 250)
         ax.plot(grid, endpoint_prediction(grid * scale, cal),
-                color=color, lw=1.8, label="Conditional fit")
+                color=color, lw=1.8, label="Endpoint fit")
         controls = [float(r["value"]) for r in selected if r["role"] == "control"]
         ax.axhline(np.mean(controls), color="#888888", ls="--", lw=1, label="Control")
         unit = "mM" if drug == "NAC" else "μM"

@@ -34,7 +34,7 @@ python -B modules/drug_delivery/pkpd_continuous.py \
 
 `fit_endpoint_models.py` writes tables and static model parameters to `results/` and four sets of PNG/SVG figures to `figures/`. Its static cytokine curves and JC-1/qPCR summaries provide supplementary endpoint views. Figure N4b uses the dynamic calibration produced by `pkpd_continuous.py`.
 
-The continuous-supply command writes `conditional_pkpd_results.json`, `illustrative_trajectories.csv`, and PNG/SVG trajectory figures to `pkpd_continuous_results/`. The JSON contains `assumed_configuration` and `conditional_PD_calibrations`, which also supply the downstream integrated optimization model.
+The continuous-supply command writes `conditional_pkpd_results.json`, `illustrative_trajectories.csv`, and PNG/SVG trajectory figures to `pkpd_continuous_results/`. The JSON contains `assumed_configuration` and `conditional_PD_calibrations`, which also supply the downstream integrated optimization model. These keys and the `illustrative_*` filenames are stable interfaces for reference-scenario outputs. Legacy configuration status values remain readable; new exports use `REFERENCE_SCENARIO_PK_PD`.
 
 After the two commands above, draw Figures N4a, N4b, and N4d:
 

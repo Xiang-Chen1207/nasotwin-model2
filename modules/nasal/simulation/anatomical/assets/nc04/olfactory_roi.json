@@ -78,7 +78,7 @@
     ],
     "study_assumptions": [
       "breath hold",
-      "tip location selected inside this geometry",
+      "configured nozzle-tip coordinates inside this geometry",
       "0.15 mm release radius",
       "pitch/yaw grid",
       "point droplets and irreversible first-hit capture"

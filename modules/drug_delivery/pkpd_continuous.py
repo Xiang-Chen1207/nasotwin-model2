@@ -166,6 +166,7 @@ def main():
     parser.add_argument("--config", type=Path, required=True)
     args = parser.parse_args()
     cfg = json.loads(args.config.read_text(encoding="utf-8"))
+    # Accept the legacy configuration status; current exports use the reference-scenario status.
     if cfg["status"] not in {"REFERENCE_SCENARIO_PK_PD", "ILLUSTRATION_ONLY_NOT_CALIBRATED_PK"}:
         raise ValueError("Use REFERENCE_SCENARIO_PK_PD for the reference-parameter PK workflow.")
     cfg["status"] = "REFERENCE_SCENARIO_PK_PD"

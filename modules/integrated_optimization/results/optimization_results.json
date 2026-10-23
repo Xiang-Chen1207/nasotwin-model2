@@ -1,0 +1,438 @@
+{
+  "status": "REFERENCE_SCENARIO_ALLOCATION",
+  "reference": {
+    "emitted_cfu": 1000000.0,
+    "exposure_ref_cfu_h": 31872.08922315291,
+    "evaluation_time_h": 24.0,
+    "targets": {
+      "E01": 0.2,
+      "E02": 0.2,
+      "E03": 0.2,
+      "E04": 0.2
+    },
+    "reference_productivity": {
+      "NAC": 0.766341061834718,
+      "SFN": 0.0006274975464630552
+    },
+    "productivity_mode": {
+      "NAC": "target_normalized",
+      "SFN": "target_normalized"
+    }
+  },
+  "retention": {
+    "source_script": "../nasal/scripts/run_best_coupled_results.py",
+    "scenario": "full",
+    "seeds": [
+      7717,
+      8831,
+      9941
+    ],
+    "source_emitted_cfu_per_strain": 1000000.0,
+    "normalization": "retained CFU per emitted CFU, including deposition",
+    "aggregation": "one growth trajectory per strain; mean across spray seeds",
+    "growth_record_counts": {
+      "WT": 1,
+      "Q": 1,
+      "NAC": 1,
+      "SFN": 1
+    },
+    "time_points": 721,
+    "nh3_proxy": "WT total retention multiplied by nh3_factor",
+    "source_window_h": [
+      0.0,
+      1.0
+    ],
+    "after_source_window": "Zero active production source after one hour.",
+    "population_scaling": "Single-strain kernels scale linearly with emitted CFU.",
+    "source": "../nasal/outputs/coupling/coupled_results.npz"
+  },
+  "drug_requirements": {
+    "NAC": {
+      "drug": "NAC",
+      "amplitude": 766341.061834718,
+      "amplitude_unit": "nmol/h = q[nmol/(CFU h)] * emitted_CFU",
+      "feasible": true,
+      "per_channel": {
+        "E01": {
+          "drug": "NAC",
+          "cell": "RAW",
+          "endpoint": "IL-6",
+          "target_effect": 0.2,
+          "dynamic_effect_ceiling": 0.9886146012403392,
+          "amplitude": 100184.7594715001,
+          "feasible": true,
+          "effect_at_own_requirement": 0.19999999999999998,
+          "effect_at_joint_drug_requirement": 0.6278752568281737
+        },
+        "E02": {
+          "drug": "NAC",
+          "cell": "RAW",
+          "endpoint": "TNF-α",
+          "target_effect": 0.2,
+          "dynamic_effect_ceiling": 0.9975212478233335,
+          "amplitude": 766341.061834718,
+          "feasible": true,
+          "effect_at_own_requirement": 0.2,
+          "effect_at_joint_drug_requirement": 0.2
+        }
+      },
+      "endpoint_time_h": 24.0,
+      "source_end_h": 1.0,
+      "exposure_factor": 1.0,
+      "interpretation": "Model-derived production requirement under the reference transport and timing configuration; dose conversion uses configured productivity, target-normalized by default and replaceable with measured values. Response channels are evaluated separately."
+    },
+    "SFN": {
+      "drug": "SFN",
+      "amplitude": 627.4975464630552,
+      "amplitude_unit": "nmol/h = q[nmol/(CFU h)] * emitted_CFU",
+      "feasible": true,
+      "per_channel": {
+        "E03": {
+          "drug": "SFN",
+          "cell": "RAW",
+          "endpoint": "IL-6",
+          "target_effect": 0.2,
+          "dynamic_effect_ceiling": 0.9975212478233335,
+          "amplitude": 627.4975464630552,
+          "feasible": true,
+          "effect_at_own_requirement": 0.2,
+          "effect_at_joint_drug_requirement": 0.2
+        },
+        "E04": {
+          "drug": "SFN",
+          "cell": "BV2",
+          "endpoint": "IL-6",
+          "target_effect": 0.2,
+          "dynamic_effect_ceiling": 0.7850176375661553,
+          "amplitude": 212.82762818480273,
+          "feasible": true,
+          "effect_at_own_requirement": 0.2000000000000174,
+          "effect_at_joint_drug_requirement": 0.3822267864976106
+        }
+      },
+      "endpoint_time_h": 24.0,
+      "source_end_h": 1.0,
+      "exposure_factor": 1.0,
+      "interpretation": "Model-derived production requirement under the reference transport and timing configuration; dose conversion uses configured productivity, target-normalized by default and replaceable with measured values. Response channels are evaluated separately."
+    }
+  },
+  "scenarios": [
+    {
+      "name": "nominal",
+      "label": "Nominal",
+      "eta_q": 1.0,
+      "eta_n": 1.0,
+      "nh3_factor": 1.0,
+      "exposure_factor": 1.0,
+      "production_factor": 1.0,
+      "nu": 1.0,
+      "feasible": true,
+      "metabolic": {
+        "r_q": 0.4,
+        "dose_ref": 1.5999999999999996,
+        "gln_removal": 0.20508613239979523,
+        "ammonia_peak": 4.0917061349311545,
+        "ammonia_end": 3.993039322940295,
+        "bcaa_end": 1.323007908648827,
+        "nitrogen_error": 2.1316282072803006e-14
+      },
+      "metabolic_by_scenario": {
+        "nominal": {
+          "gln_removal": 0.20508613239979523,
+          "ammonia_peak": 4.0917061349311545,
+          "ammonia_end": 3.993039322940295,
+          "bcaa_end": 1.323007908648827,
+          "nitrogen_error": 2.1316282072803006e-14
+        }
+      },
+      "allocations_cfu": {
+        "Q": 639999.9999999999,
+        "NH3": 959999.9999999997,
+        "NAC": 1000000.0,
+        "SFN": 999999.9999999999
+      },
+      "total_cfu": 3599999.9999999995,
+      "fractions": {
+        "Q": 0.17777777777777776,
+        "NH3": 0.2666666666666666,
+        "NAC": 0.2777777777777778,
+        "SFN": 0.2777777777777778
+      },
+      "scenario_names": [
+        "nominal"
+      ]
+    },
+    {
+      "name": "reduced_activity",
+      "label": "Reduced nitrogen activity",
+      "eta_q": 1.0,
+      "eta_n": 0.75,
+      "nh3_factor": 1.0,
+      "exposure_factor": 1.0,
+      "production_factor": 1.0,
+      "nu": 1.0,
+      "feasible": true,
+      "metabolic": {
+        "r_q": 0.025,
+        "dose_ref": 1.7499999999999996,
+        "gln_removal": 0.20164410769382357,
+        "ammonia_peak": 4.086223041243092,
+        "ammonia_end": 3.9903274892202947,
+        "bcaa_end": 1.2949635201434293,
+        "nitrogen_error": 4.973799150320701e-14
+      },
+      "metabolic_by_scenario": {
+        "reduced_activity": {
+          "gln_removal": 0.20164410769382357,
+          "ammonia_peak": 4.086223041243092,
+          "ammonia_end": 3.9903274892202947,
+          "bcaa_end": 1.2949635201434293,
+          "nitrogen_error": 4.973799150320701e-14
+        }
+      },
+      "allocations_cfu": {
+        "Q": 43749.99999999999,
+        "NH3": 1706249.9999999995,
+        "NAC": 1000000.0,
+        "SFN": 999999.9999999999
+      },
+      "total_cfu": 3749999.9999999995,
+      "fractions": {
+        "Q": 0.011666666666666665,
+        "NH3": 0.45499999999999996,
+        "NAC": 0.2666666666666667,
+        "SFN": 0.26666666666666666
+      },
+      "scenario_names": [
+        "reduced_activity"
+      ]
+    },
+    {
+      "name": "lower_exposure",
+      "label": "Lower exposure mapping",
+      "eta_q": 1.0,
+      "eta_n": 1.0,
+      "nh3_factor": 1.0,
+      "exposure_factor": 0.5,
+      "production_factor": 1.0,
+      "nu": 1.0,
+      "feasible": true,
+      "metabolic": {
+        "r_q": 0.4,
+        "dose_ref": 1.5999999999999996,
+        "gln_removal": 0.20508613239979523,
+        "ammonia_peak": 4.0917061349311545,
+        "ammonia_end": 3.993039322940295,
+        "bcaa_end": 1.323007908648827,
+        "nitrogen_error": 2.1316282072803006e-14
+      },
+      "metabolic_by_scenario": {
+        "lower_exposure": {
+          "gln_removal": 0.20508613239979523,
+          "ammonia_peak": 4.0917061349311545,
+          "ammonia_end": 3.993039322940295,
+          "bcaa_end": 1.323007908648827,
+          "nitrogen_error": 2.1316282072803006e-14
+        }
+      },
+      "allocations_cfu": {
+        "Q": 639999.9999999999,
+        "NH3": 959999.9999999997,
+        "NAC": 2000000.0,
+        "SFN": 1999999.999999999
+      },
+      "total_cfu": 5599999.999999998,
+      "fractions": {
+        "Q": 0.1142857142857143,
+        "NH3": 0.17142857142857143,
+        "NAC": 0.35714285714285726,
+        "SFN": 0.3571428571428571
+      },
+      "scenario_names": [
+        "lower_exposure"
+      ]
+    },
+    {
+      "name": "combined_stress",
+      "label": "Combined stress",
+      "eta_q": 1.0,
+      "eta_n": 0.75,
+      "nh3_factor": 0.8,
+      "exposure_factor": 0.5,
+      "production_factor": 0.8,
+      "nu": 1.0,
+      "feasible": true,
+      "metabolic": {
+        "r_q": 0.025,
+        "dose_ref": 2.1999999999999993,
+        "gln_removal": 0.20413482614075296,
+        "ammonia_peak": 4.091905815134186,
+        "ammonia_end": 3.9962938179049177,
+        "bcaa_end": 1.3059395786013368,
+        "nitrogen_error": 2.1316282072803006e-14
+      },
+      "metabolic_by_scenario": {
+        "combined_stress": {
+          "gln_removal": 0.20413482614075296,
+          "ammonia_peak": 4.091905815134186,
+          "ammonia_end": 3.9962938179049177,
+          "bcaa_end": 1.3059395786013368,
+          "nitrogen_error": 2.1316282072803006e-14
+        }
+      },
+      "allocations_cfu": {
+        "Q": 54999.99999999998,
+        "NH3": 2144999.999999999,
+        "NAC": 2500000.0,
+        "SFN": 2499999.999999999
+      },
+      "total_cfu": 7199999.999999998,
+      "fractions": {
+        "Q": 0.007638888888888888,
+        "NH3": 0.2979166666666666,
+        "NAC": 0.3472222222222223,
+        "SFN": 0.3472222222222222
+      },
+      "scenario_names": [
+        "combined_stress"
+      ]
+    }
+  ],
+  "robust": {
+    "name": "robust_selected",
+    "label": "Selected-scenario robust",
+    "feasible": true,
+    "metabolic": {
+      "r_q": 0.025,
+      "dose_ref": 2.1999999999999993,
+      "gln_removal": 0.2465627759547966,
+      "ammonia_peak": 4.0,
+      "ammonia_end": 3.150697968857547,
+      "bcaa_end": 1.8970852692385567,
+      "nitrogen_error": 2.1316282072803006e-14
+    },
+    "metabolic_by_scenario": {
+      "nominal": {
+        "gln_removal": 0.2465627759547966,
+        "ammonia_peak": 4.0,
+        "ammonia_end": 3.150697968857547,
+        "bcaa_end": 1.8970852692385567,
+        "nitrogen_error": 2.1316282072803006e-14
+      },
+      "reduced_activity": {
+        "gln_removal": 0.24656277908953805,
+        "ammonia_peak": 4.086232886004029,
+        "ammonia_end": 3.897711397012873,
+        "bcaa_end": 1.568646706767738,
+        "nitrogen_error": 2.842170943040401e-14
+      },
+      "lower_exposure": {
+        "gln_removal": 0.2465627759547966,
+        "ammonia_peak": 4.0,
+        "ammonia_end": 3.150697968857547,
+        "bcaa_end": 1.8970852692385567,
+        "nitrogen_error": 2.1316282072803006e-14
+      },
+      "combined_stress": {
+        "gln_removal": 0.20413482614075296,
+        "ammonia_peak": 4.091905815134186,
+        "ammonia_end": 3.9962938179049177,
+        "bcaa_end": 1.3059395786013368,
+        "nitrogen_error": 2.1316282072803006e-14
+      }
+    },
+    "allocations_cfu": {
+      "Q": 54999.99999999998,
+      "NH3": 2144999.999999999,
+      "NAC": 2500000.0,
+      "SFN": 2499999.999999999
+    },
+    "total_cfu": 7199999.999999998,
+    "fractions": {
+      "Q": 0.007638888888888888,
+      "NH3": 0.2979166666666666,
+      "NAC": 0.3472222222222223,
+      "SFN": 0.3472222222222222
+    },
+    "scenario_names": [
+      "nominal",
+      "reduced_activity",
+      "lower_exposure",
+      "combined_stress"
+    ]
+  },
+  "equal_budget_comparison": [
+    {
+      "strategy": "optimized",
+      "total_cfu": 3599999.9999999995,
+      "gln_removal": 0.20508613239979523,
+      "ammonia_peak": 4.0917061349311545,
+      "ammonia_end": 3.993039322940295,
+      "bcaa_end": 1.323007908648827,
+      "nitrogen_error": 2.1316282072803006e-14,
+      "metabolic_feasible": true,
+      "E01": 0.6278752568281726,
+      "E01_Ce_max_uM": 2849.9589275912267,
+      "E02": 0.19999999999999957,
+      "E02_Ce_max_uM": 2849.9589275912267,
+      "E03": 0.1999999999999997,
+      "E03_Ce_max_uM": 2.2498740700018587,
+      "E04": 0.38222678649761005,
+      "E04_Ce_max_uM": 2.2498740700018587,
+      "all_targets_met": true
+    },
+    {
+      "strategy": "equal_split",
+      "total_cfu": 3599999.9999999995,
+      "gln_removal": 0.2330232646764978,
+      "ammonia_peak": 4.213054634847894,
+      "ammonia_end": 4.140251646671993,
+      "bcaa_end": 1.4162647698630058,
+      "nitrogen_error": 2.842170943040401e-14,
+      "metabolic_feasible": false,
+      "E01": 0.6045632928907045,
+      "E01_Ce_max_uM": 2564.9630348321034,
+      "E02": 0.1844194753082103,
+      "E02_Ce_max_uM": 2564.9630348321034,
+      "E03": 0.18442000564022992,
+      "E03_Ce_max_uM": 2.0248866630016726,
+      "E04": 0.36274605662300524,
+      "E04_Ce_max_uM": 2.0248866630016726,
+      "all_targets_met": false
+    },
+    {
+      "strategy": "metabolic_40_60",
+      "total_cfu": 3599999.9999999995,
+      "gln_removal": 0.20508613239979523,
+      "ammonia_peak": 4.0917061349311545,
+      "ammonia_end": 3.993039322940295,
+      "bcaa_end": 1.323007908648827,
+      "nitrogen_error": 2.1316282072803006e-14,
+      "metabolic_feasible": true,
+      "E01": 0.6278752568281726,
+      "E01_Ce_max_uM": 2849.9589275912267,
+      "E02": 0.19999999999999957,
+      "E02_Ce_max_uM": 2849.9589275912267,
+      "E03": 0.1999999999999997,
+      "E03_Ce_max_uM": 2.2498740700018587,
+      "E04": 0.38222678649761005,
+      "E04_Ce_max_uM": 2.2498740700018587,
+      "all_targets_met": true
+    }
+  ],
+  "assumptions": [
+    "Four strains are modeled independently and jointly allocated under the resource and response constraints.",
+    "Fixed 15 mm / 37.5 degree spray; source includes deposition already.",
+    "Lp-NH3 retention uses the WT reference kernel and the configured retention multiplier.",
+    "Equal per-CFU productivity of free and attached retained bacteria.",
+    "Metabolic activity is normalized to WT reference CFU-hours.",
+    "Metabolic pools represent a closed reference assay compartment with configured initial concentrations.",
+    "The modeled drug-source window is the first hour; bacterial persistence is a separate output.",
+    "PK, kappa and PD timing use the configured reference values inherited from Model 3.",
+    "Targets of 20 percent are configured cellular-endpoint design criteria.",
+    "Default q_ref normalizes each drug to its target requirement at the reference dose.",
+    "Four PD channels are computed independently, with a separate response constraint for each.",
+    "Scenario feasibility is evaluated for the finite set of listed parameter perturbations.",
+    "Dose scaling assumes the supplied linear retention model remains applicable."
+  ]
+}

@@ -1,0 +1,225 @@
+{
+  "schema_version": 1,
+  "published_date": "2026-10-23",
+  "source_collection": "NasoTwin model2 experimental inputs and saved source runs",
+  "runtime": {
+    "python": "3.12.10",
+    "numpy": "1.26.4",
+    "scipy": "1.17.1",
+    "pandas": "2.3.3",
+    "matplotlib": "3.11.2"
+  },
+  "workflows": [
+    "python -B run.py metabolism --check",
+    "python -B run.py drug-pkpd",
+    "python -B run.py optimize",
+    "python -B run.py ga"
+  ],
+  "coupling_metadata": {
+    "added_field": "source_emitted_cfu_per_strain",
+    "value": 1000000.0,
+    "unit": "CFU",
+    "source": "modules/nasal/outputs/coupling/results_summary.json#emitted_cfu_per_strain",
+    "array_preservation": "Every original NPZ array retains its values, dtype and shape."
+  },
+  "files": [
+    {
+      "path": "data/experimental/湿实验结果总表.md",
+      "bytes": 64968,
+      "sha256": "622a9ef7fd9f2416956dd4fcf5738002a09b82966a785c10f6b5f86d9c9a38e0",
+      "preparation": "prose_revised_original_numeric_tables_and_units_preserved",
+      "archived_source": "model2/final_model2/real_data/湿实验结果总表.md",
+      "archived_source_sha256": "c87ce382a4bd19d21b5cb4f2cb4906c0034b1d51baf81d34a12d9336c36fcd0d"
+    },
+    {
+      "path": "modules/nasal/data/growth_curve.xlsx",
+      "bytes": 31495,
+      "sha256": "8139e831fa8ec25ab42ab0cff9e73b341f69ff5ef776221e48e911e602396059",
+      "preparation": "original_bytes",
+      "archived_source": "model2/real_data/生长曲线2.xlsx",
+      "archived_source_sha256": "8139e831fa8ec25ab42ab0cff9e73b341f69ff5ef776221e48e911e602396059"
+    },
+    {
+      "path": "modules/nasal/outputs/coupling/coupled_results.npz",
+      "bytes": 3355370,
+      "sha256": "aeec02c21a4bfc36b27ca6ae41b56406dfc607190957dab0e0f385443746f5e2",
+      "preparation": "original_arrays_plus_recorded_emitted_dose_scalar",
+      "archived_source": "model2/final_model2/1Nasal Deposition & Bacterial Dynamics/best_spray_coupling/coupled_results.npz",
+      "archived_source_sha256": "618dc9702383e847b367dfa4c60c102e26dd071de02003f8eba4ff530baf69ac"
+    },
+    {
+      "path": "modules/nasal/outputs/coupling/results_summary.json",
+      "bytes": 980,
+      "sha256": "a3e43cbf29f75852ad87086967161af97412ff51482ec3444e5ad25d0fc73c7d",
+      "preparation": "original_bytes",
+      "archived_source": "model2/final_model2/1Nasal Deposition & Bacterial Dynamics/best_spray_coupling/results_summary.json",
+      "archived_source_sha256": "a3e43cbf29f75852ad87086967161af97412ff51482ec3444e5ad25d0fc73c7d"
+    },
+    {
+      "path": "modules/metabolic_exchange/results/integrated_parameters.json",
+      "bytes": 1124,
+      "sha256": "a80c34da00ffc9ca766985feb07a2252c57d7a7e03c5024a4cce5a8e206ad059",
+      "preparation": "current_metabolism_workflow_export",
+      "archived_source": "model2/final_model2/4Integrated Optimization/data/metabolic_parameters.json",
+      "archived_source_sha256": "38ed78f11dbd9efe0a1b8f22af426dbeea7e10b8a3b61d3be434ad27f60160e6"
+    },
+    {
+      "path": "modules/drug_delivery/pkpd_continuous_results/conditional_pkpd_results.json",
+      "bytes": 8191,
+      "sha256": "0e6d47f6e74d69cae3045569dd0182e1d31326891d6b9c382cf8e23c348adccd",
+      "preparation": "current_drug_pkpd_workflow_export",
+      "archived_source": "model2/final_model2/3Drug Delivery & Response/pkpd_continuous_results/conditional_pkpd_results.json",
+      "archived_source_sha256": "1b278a1afbce1315652684a54b96d1f83f938bb5a5ee88905cdd5876cad1f6fa"
+    },
+    {
+      "path": "modules/integrated_optimization/results/optimization_results.json",
+      "bytes": 14252,
+      "sha256": "ea8420902a5d7b2d5240c687a1a1b8322186be0def946b1eed757c4c760b01f2",
+      "preparation": "current_optimization_workflow_export",
+      "archived_source": "model2/final_model2/4Integrated Optimization/results/optimization_results.json",
+      "archived_source_sha256": "cb4539927b37e512fa09412a405df03d00d20cbb8964f6ffbff50270a07044af"
+    },
+    {
+      "path": "modules/integrated_optimization/results/ga_comparison.csv",
+      "bytes": 1272,
+      "sha256": "09edcb3ce99b03cb931aa37173895d59b42cffc551753408c1dec29c1487fabe",
+      "preparation": "current_three_seed_ga_workflow_export",
+      "archived_source": "model2/final_model2/4Integrated Optimization/results/ga_comparison.csv",
+      "archived_source_sha256": "3c3894299d713919238b6f99c7a48dfb3d48cb398334d631471d9a368259fb88"
+    },
+    {
+      "path": "modules/integrated_optimization/results/ga_comparison.json",
+      "bytes": 11250,
+      "sha256": "25164d4982b8b5484baeb89c116424016deb680c3cdfd248535e1d3f598dac75",
+      "preparation": "current_three_seed_ga_workflow_export",
+      "archived_source": "model2/final_model2/4Integrated Optimization/results/ga_comparison.json",
+      "archived_source_sha256": "291791530dc86920e288cdf368aa69573c59435d6f4b12dedb0365667c54819e"
+    },
+    {
+      "path": "data/experimental/images/E01_ELISA_RAW_NAC_IL6.png",
+      "bytes": 15731,
+      "sha256": "e10c69bad400a78898c5b0713a37bab5dbd40ec42c1e22b8d80ffda5ed28e5f8",
+      "preparation": "original_image_bytes"
+    },
+    {
+      "path": "data/experimental/images/E02_ELISA_RAW_NAC_TNFa.png",
+      "bytes": 15389,
+      "sha256": "f1c8b1820e0b795dd97caa3e3c103ed0e5f37c67100a45c462a25e256bc37ab2",
+      "preparation": "original_image_bytes"
+    },
+    {
+      "path": "data/experimental/images/E03_ELISA_RAW_SFN_IL6.png",
+      "bytes": 17636,
+      "sha256": "4740c0d0cde6fb870721b7d2033175043ccd47b901f3aadfa1433135b792a2a1",
+      "preparation": "original_image_bytes"
+    },
+    {
+      "path": "data/experimental/images/E04_ELISA_BV2_SFN_IL6.png",
+      "bytes": 17313,
+      "sha256": "4b6fc1a5662dd61ecea4b2549c8dedef013163239e69e82ca105916f2a6fd9ad",
+      "preparation": "original_image_bytes"
+    },
+    {
+      "path": "data/experimental/images/E05_LpQ_Gln_concentration_5mM.png",
+      "bytes": 39705,
+      "sha256": "84b39e874c41cf3007315a4589fd936ab97475aad2fddd25844a9317e026dbd4",
+      "preparation": "original_image_bytes"
+    },
+    {
+      "path": "data/experimental/images/E06a_LpQ_Gln_degradation_no_supplement.png",
+      "bytes": 36406,
+      "sha256": "6769cbbdac71962d385aa1171fccd7aa35ca1f0f1447a614f9667feb9103ecf9",
+      "preparation": "original_image_bytes"
+    },
+    {
+      "path": "data/experimental/images/E06b_LpQ_Gln_degradation_15mM.png",
+      "bytes": 43845,
+      "sha256": "94f3a673691b2b0c4bc66c6ef33fa8b0aa71592375ab740704d52bed9ee959fa",
+      "preparation": "original_image_bytes"
+    },
+    {
+      "path": "data/experimental/images/E07_LpNH3_BCAA_production.png",
+      "bytes": 21345,
+      "sha256": "d5d8ebce2207d0dd9dd1c9a0c5ef194fb62212ce7fa59ddffa1deb7e33451a92",
+      "preparation": "original_image_bytes"
+    },
+    {
+      "path": "data/experimental/images/E08_LpNH3_residual_NH4.png",
+      "bytes": 18600,
+      "sha256": "5cfd49852ce1a8bbeb4b45497c1084deb700fd6e28643e20c20961dcc951d178",
+      "preparation": "original_image_bytes"
+    },
+    {
+      "path": "data/experimental/images/E09a_JC1_BV2_NAC_summary.png",
+      "bytes": 32235,
+      "sha256": "6fabd5be39b03c6e46c9e639c695f00d154eb54ee683b94f8a34350015751b39",
+      "preparation": "original_image_bytes"
+    },
+    {
+      "path": "data/experimental/images/E09b_JC1_BV2_NAC_flow_cytometry.png",
+      "bytes": 624123,
+      "sha256": "a32f07278ea37359af863836eb6969b4fb1ff0fcfb8e7b0e3c224774cd04e32c",
+      "preparation": "original_image_bytes"
+    },
+    {
+      "path": "data/experimental/images/E10_JC1_BV2_SFN_summary.png",
+      "bytes": 31081,
+      "sha256": "3460902676b69202910665e1d33ea43fe006aa8d35ef56e469ed5c22832532c3",
+      "preparation": "original_image_bytes"
+    },
+    {
+      "path": "data/experimental/images/E11_qPCR_SHSY5Y_NAC_VPA.png",
+      "bytes": 45269,
+      "sha256": "6188c27a82c1d8a3ce3abe0c7d963c71795ad53d044cd56454724f4740f2bce3",
+      "preparation": "original_image_bytes"
+    },
+    {
+      "path": "data/experimental/images/E12_qPCR_SHSY5Y_SFN_H2O2_set1_0724.png",
+      "bytes": 43338,
+      "sha256": "3a5e58c586abd23158b521c708ffbd43ee8b72f5195b761789a21770b22a723a",
+      "preparation": "original_image_bytes"
+    },
+    {
+      "path": "data/experimental/images/E13_qPCR_SHSY5Y_SFN_H2O2_set2_0825.png",
+      "bytes": 44296,
+      "sha256": "76ab9d49b322e8200a76948665563547d0c797187f473a10c76ba6127a5248e9",
+      "preparation": "original_image_bytes"
+    },
+    {
+      "path": "data/experimental/images/E14_qPCR_RAW_SFN.png",
+      "bytes": 40437,
+      "sha256": "16803bb2b18222ab55ce302996866cb694bca1d7b9eb0358edc11c7cd45bc088",
+      "preparation": "original_image_bytes"
+    },
+    {
+      "path": "data/experimental/images/E15_qPCR_BV2_SFN_Nfe2l2.png",
+      "bytes": 21906,
+      "sha256": "48e2d2d002a372ee463446cfd55b9e5f974606d3a894a56062f0066caefdb4b8",
+      "preparation": "original_image_bytes"
+    },
+    {
+      "path": "data/experimental/images/E16_qPCR_BV2_SFN_Hmox1.png",
+      "bytes": 20764,
+      "sha256": "2c22e2d970ddd1212f161767bdc943bfe0971175b6ff55d45e45bd1093c6c934",
+      "preparation": "original_image_bytes"
+    },
+    {
+      "path": "data/experimental/images/E17_qPCR_BV2_SFN_Nos2.png",
+      "bytes": 21510,
+      "sha256": "55c4ffb1287a9f80a9c78e405c1121fcb0a26ab0d4cb64c9bc2aaf29ecb19af9",
+      "preparation": "original_image_bytes"
+    },
+    {
+      "path": "data/experimental/images/E18_qPCR_BV2_SFN_Il6.png",
+      "bytes": 20645,
+      "sha256": "09f1b5f3c3033ac956bb93370cba0066ee9a76c80171919a9ee175dba716495f",
+      "preparation": "original_image_bytes"
+    },
+    {
+      "path": "data/experimental/images/E19_qPCR_BV2_SFN_Tnf.png",
+      "bytes": 20304,
+      "sha256": "476eb009fa3e8f790be6865f821f51a55aabc178cd0b439cbc88d8d5e3ba9f65",
+      "preparation": "original_image_bytes"
+    }
+  ]
+}

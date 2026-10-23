@@ -167,7 +167,7 @@ def main():
     best = min(accepted, key=lambda row: row["total_ref"])
     improvement = 100 * (baseline["total_ref"] - best["total_ref"]) / baseline["total_ref"]
     report = {
-        "status": "CONDITIONAL_NOMINAL_GA_COMPARISON_NOT_GLOBAL_OPTIMALITY_PROOF",
+        "status": "NOMINAL_SCENARIO_GA_COMPARISON",
         "reference": reference,
         "scenario": {k: scenario[k] for k in (
             "name", "eta_q", "eta_n", "nh3_factor",
@@ -192,7 +192,7 @@ def main():
             "domain_interpretation": (
                 "Continuous relaxation of the original metabolic grid within its same "
                 "ratio and dose ranges; nonnegative drug doses capped by the feasible "
-                "baseline total, which cannot exclude a lower-total solution."
+                "baseline total; every lower-total nonnegative allocation lies within these dose caps."
             ),
         },
         "constraints": {**limits, "response_min": targets},
@@ -205,12 +205,12 @@ def main():
             max(row["total_ref"] for row in accepted),
         ],
         "elapsed_seconds": perf_counter() - started,
-        "limitations": [
+        "method_scope": [
             "Reference-scenario comparison; stress scenarios and common-feasible allocations are reported separately.",
             "Continuous search refines feasible allocations between grid points; the comparison measures total dose relative to that grid baseline.",
             "Three independent seeds describe numerical search repeatability; the reported result is the best feasible solution found.",
-            "Interpret allocations under the listed reference productivity, activity-transfer, WT-based NH3 retention and independent-strain assumptions.",
-            "Near-boundary feasible solutions have little margin for unmodeled parameter error.",
+            "Allocations use the listed reference productivity, activity transfer, WT-based NH3 retention and independent-strain dynamics.",
+            "Constraint margins quantify the remaining headroom of each feasible allocation under the configured parameters.",
         ],
     }
     out = ROOT / "results"

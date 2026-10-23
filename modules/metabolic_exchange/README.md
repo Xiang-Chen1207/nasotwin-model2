@@ -9,8 +9,8 @@ sensitivity.
 
 ## Input
 
-Provide a processed assay table at
-`../../data/experimental/湿实验结果总表.md`, relative to this module, or set
+The included processed assay table is
+[`../../data/experimental/湿实验结果总表.md`](../../data/experimental/湿实验结果总表.md). Set
 `source_table` in `config.json` to your own table. Paths in the configuration
 are resolved relative to the configuration file.
 
@@ -38,7 +38,7 @@ or `Lp-NH3`). `NA` denotes a missing observation.
 - Evaluate one-parameter sensitivity scenarios and report endpoint statistics.
 
 Concentrations are expressed in mM and auxiliary nitrogen pools in mM-N.
-Time and exposure are dimensionless. The shared interval and cross-experiment activity transfer use the configured reference assumptions. `config.json` defines the initial pools,
+Time and exposure are dimensionless. The shared interval and cross-experiment activity transfer use the reference configuration. `config.json` defines the initial pools,
 activity-transfer factors, aqueous speciation settings and design targets.
 
 ## Wiki equations and reference configuration
@@ -66,7 +66,7 @@ both activity-transfer factors are 1, and speciation uses 30 °C and pH 6.5.
 
 ## Run
 
-From the repository root, after preparing the input table:
+From the repository root, using the included input table:
 
 ```bash
 python -B run.py metabolism

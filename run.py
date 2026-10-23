@@ -15,7 +15,7 @@ WORKFLOWS = {
                        "Analyze ELISA, JC-1 and qPCR endpoints"),
     "drug-pkpd": ("modules/drug_delivery/pkpd_continuous.py",
                   ("--config", str(ROOT / "modules/drug_delivery/pkpd_continuous_illustration.json")),
-                  "Run the continuous-supply PK-PD illustration"),
+                  "Run continuous-supply PK-PD with the reference configuration"),
     "drug-figures": ("modules/drug_delivery/wiki_figures/build_figures.py", (),
                      "Draw drug figures from supplied result tables"),
     "optimize": ("modules/integrated_optimization/run_optimization.py", (),

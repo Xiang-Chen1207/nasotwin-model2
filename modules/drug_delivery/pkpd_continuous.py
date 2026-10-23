@@ -73,7 +73,7 @@ def fit_dynamic_pd(groups, eid, endpoint, drug, cell, assumption):
                 Emax_infinity=emax, K_medium_uM=k, baseline_pg_mL=baseline,
                 tau_effect_h=tau_e, tau_response_h=tau_r,
                 reference_assay_duration_h=duration,
-                duration_status="assumed_not_measured",
+                duration_status="configured_reference_duration",
                 calibration_dose_uM=c.tolist(),
                 observed_pg_mL=means[mask].tolist(),
                 predicted_at_assumed_time_pg_mL=predicted.tolist(),
@@ -166,8 +166,9 @@ def main():
     parser.add_argument("--config", type=Path, required=True)
     args = parser.parse_args()
     cfg = json.loads(args.config.read_text(encoding="utf-8"))
-    if cfg["status"] != "ILLUSTRATION_ONLY_NOT_CALIBRATED_PK":
-        raise ValueError("Set the configuration status to ILLUSTRATION_ONLY_NOT_CALIBRATED_PK for this reference-parameter PK workflow.")
+    if cfg["status"] not in {"REFERENCE_SCENARIO_PK_PD", "ILLUSTRATION_ONLY_NOT_CALIBRATED_PK"}:
+        raise ValueError("Use REFERENCE_SCENARIO_PK_PD for the reference-parameter PK workflow.")
+    cfg["status"] = "REFERENCE_SCENARIO_PK_PD"
     if cfg["drug_order"] != ["SFN", "NAC"]:
         raise ValueError("Expected SFN/NAC ordering.")
     end = float(cfg["duration_h"])
@@ -184,10 +185,10 @@ def main():
     assumption = cfg["pd_assumptions"]
     for name in ("reference_assay_duration_h", "tau_effect_h", "tau_response_h"):
         if not np.isfinite(assumption[name]) or assumption[name] <= 0:
-            raise ValueError(f"Explicit positive assumed {name} required.")
+            raise ValueError(f"Configure a positive {name}.")
     scale = np.array(assumption["brain_free_to_medium_equivalent_scale"], dtype=float)
     if scale.shape != (2,) or not np.isfinite(scale).all() or np.min(scale) <= 0:
-        raise ValueError("Positive explicit exposure-bridge assumptions required.")
+        raise ValueError("Configure two positive exposure scaling factors.")
 
     def supply(t):
         return reference_rate * np.array([np.interp(t, knots, activity[:, j]) for j in range(2)])

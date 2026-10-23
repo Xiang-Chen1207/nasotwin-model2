@@ -1,0 +1,13 @@
+# Keep published file checksums stable across operating systems.
+/data/experimental/湿实验结果总表.md text eol=lf
+/data/README.md text eol=lf
+/data/manifest.json text eol=lf
+/data/experimental/images/*.png binary
+/modules/nasal/data/growth_curve.xlsx binary
+/modules/nasal/outputs/coupling/coupled_results.npz binary
+/modules/nasal/outputs/coupling/results_summary.json text eol=lf
+/modules/metabolic_exchange/results/integrated_parameters.json text eol=lf
+/modules/drug_delivery/pkpd_continuous_results/conditional_pkpd_results.json text eol=lf
+/modules/integrated_optimization/results/optimization_results.json text eol=lf
+/modules/integrated_optimization/results/ga_comparison.csv text eol=lf
+/modules/integrated_optimization/results/ga_comparison.json text eol=lf

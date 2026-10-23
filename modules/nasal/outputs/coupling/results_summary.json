@@ -1,0 +1,42 @@
+{
+  "depth_mm": 15,
+  "pitch_deg": 37.5,
+  "yaw_deg": 10,
+  "cone_full_deg": 10,
+  "seed_count": 3,
+  "parcels_per_seed": 10000,
+  "emitted_cfu_per_strain": 1000000.0,
+  "initial_cfu_mean": 35133.333333333336,
+  "posterior_origin_mm": 28,
+  "mucus": {
+    "length_m": 0.047,
+    "thickness_m": 1e-05,
+    "width_m": 0.030069117936988205,
+    "nx": 120,
+    "nz": 12,
+    "velocity_m_s": 1.6666666666666667e-05,
+    "diffusion_parallel_m2_s": 1e-13,
+    "diffusion_perpendicular_m2_s": 1e-13,
+    "duration_s": 3600,
+    "output_frames": 721
+  },
+  "biology": {
+    "attachment_reference_s": 600.0,
+    "attachment_Da": [
+      0.0,
+      1.0
+    ],
+    "baseline_Da": 1.0,
+    "detachment_s_inv": 0.0002777777777777778,
+    "direct_attached_clearance_s_inv": 0.0
+  },
+  "scenarios": [
+    "full",
+    "no_growth",
+    "no_attachment",
+    "faster_clearance"
+  ],
+  "growth_transfer_eta": 1,
+  "culture_phase_h": 0,
+  "max_relative_coupled_balance_error": 1.8670098848889596e-08
+}

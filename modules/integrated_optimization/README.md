@@ -4,7 +4,7 @@ This module implements [NasoTwin Integrated Optimization (M8)](https://2026.igem
 
 ## Upstream inputs
 
-Run the [nasal](../nasal/README.md), [metabolic-exchange](../metabolic_exchange/README.md), and [drug-delivery](../drug_delivery/README.md) modules with your experimental inputs first. Their generated outputs are read directly; paths in `config.json` are relative to this module directory.
+The three upstream result files are included and read directly. The [nasal](../nasal/README.md), [metabolic-exchange](../metabolic_exchange/README.md), and [drug-delivery](../drug_delivery/README.md) commands refresh them when inputs change. Paths in `config.json` are relative to this module directory.
 
 | Configuration field | Default upstream output | Contents |
 |---|---|---|
@@ -14,7 +14,10 @@ Run the [nasal](../nasal/README.md), [metabolic-exchange](../metabolic_exchange/
 
 `transport.py` selects the nasal `full` scenario and averages mobile and attached populations across spray seeds separately. It divides both components by `source_emitted_cfu_per_strain`, the emitted input before deposition. Each strain has one fitted growth trajectory; the current nasal workflow fits one 47-point culture curve per strain and generates 721 first-hour coupling times. Lp-NH3 uses the WT retention kernel multiplied by `nh3_factor`; NH3-specific retention calibration requires matching measurements.
 
-The repository contains source code and configuration. Upstream inputs and generated results are produced when the models run.
+The [saved grid and scenario results](results/optimization_results.json) and
+[GA comparison](results/ga_comparison.csv) accompany the source code and configuration.
+The [GA report](results/ga_comparison.json) records the search settings, seeds and
+full dynamic constraint checks. The data guide records provenance and checksums.
 
 ## Objective and constraints
 
@@ -44,7 +47,7 @@ A `1e-6` inward normalized margin is applied during search. Each seed's selected
 
 ## Run
 
-After generating the three upstream outputs, run from the repository root:
+Using the included upstream outputs, run from the repository root:
 
 ```bash
 cd modules/integrated_optimization

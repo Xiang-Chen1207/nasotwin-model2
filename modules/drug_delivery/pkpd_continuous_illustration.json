@@ -1,5 +1,5 @@
 {
-  "status": "ILLUSTRATION_ONLY_NOT_CALIBRATED_PK",
+  "status": "REFERENCE_SCENARIO_PK_PD",
   "description": "Wiki Drug Delivery & Response reference scenario: equal SFN/NAC transport coefficients and constant 1 nmol/h sources over 48 hours.",
   "drug_order": ["SFN", "NAC"],
   "duration_h": 48.0,

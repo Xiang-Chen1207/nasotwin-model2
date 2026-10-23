@@ -21,7 +21,7 @@ The four response channels are NAC–RAW IL-6, NAC–RAW TNF-α, SFN–RAW IL-6,
 
 ## Run
 
-Use Python 3.9+ with NumPy, SciPy, and Matplotlib. From the repository root, prepare the experimental table described below, then run:
+Use Python 3.9+ with NumPy, SciPy, and Matplotlib. From the repository root, run with the included experimental table:
 
 ```bash
 # Export experimental tables, static fits, and supplementary endpoint figures.
@@ -44,11 +44,11 @@ python -B modules/drug_delivery/wiki_figures/build_figures.py
 
 The drawing script reads `results/endpoint_values.csv` and `pkpd_continuous_results/conditional_pkpd_results.json`, selects ELISA records for E01–E04, and writes PNG/SVG/PDF figures to `wiki_figures/figures/`.
 
-## External inputs and reference configuration
+## Experimental inputs and reference configuration
 
-Provide the external experimental table at `../../data/experimental/湿实验结果总表.md`, relative to this module. The parser reads experiment sections E01–E04 and E09–E19, identified by headings such as `### E01`. Numeric tables use `指标`, `分组`, and `R1`, `R2`, … columns; `NA` marks missing entries. NAC doses use mM and SFN doses use µM. The Wiki figure script uses the exported `experiment`, `role`, `dose`, and `value` columns for E01–E04 directly from the endpoint table.
+The experimental table is included at [`../../data/experimental/湿实验结果总表.md`](../../data/experimental/湿实验结果总表.md). The parser reads experiment sections E01–E04 and E09–E19, identified by headings such as `### E01`. Numeric tables use `指标`, `分组`, and `R1`, `R2`, … columns; `NA` marks missing entries. NAC doses use mM and SFN doses use µM. The Wiki figure script uses the exported `experiment`, `role`, `dose`, and `value` columns for E01–E04 directly from the endpoint table.
 
-The included `pkpd_continuous_illustration.json` matches the chapter's reference scenario parameter table:
+The included `pkpd_continuous_illustration.json` matches the chapter's reference scenario parameter table. Its status is `REFERENCE_SCENARIO_PK_PD`; the saved [PK–PD export](pkpd_continuous_results/conditional_pkpd_results.json) contains the resulting four channel calibrations and exposure summaries.
 
 Cellular endpoint calibrations are reported separately for each response channel.
 Transport, exposure mapping and timing use configured scenario values; the PK

@@ -1,0 +1,39 @@
+{
+  "gln": {
+    "gln_basal_mM": 1.2953446377897002,
+    "lambda_g_wt": 0.1277018550602814,
+    "lambda_g_q": 0.16785630479962227,
+    "rmse_mM": 0.03062512825102025
+  },
+  "nitrogen": {
+    "lambda_a_wt": 0.3515403921860348,
+    "yield_b_wt": 0.18950773168668728,
+    "lambda_o_wt": 0.022724022670212323,
+    "lambda_a_n": 0.6260611688502207,
+    "yield_b_n": 0.19204607164046947,
+    "lambda_o_n": 0.03639855977962155
+  },
+  "reference": {
+    "initial_total_ammonia_mM": 4.0,
+    "initial_bcaa_mM": 0.2,
+    "initial_other_organic_n_mM_N": 10.0,
+    "gln_supplement_mM": 15.0,
+    "ammonia_release_per_gln": 1.0,
+    "bcaa_new_n_fraction_from_ammonia": 0.5,
+    "q_activity_transfer": 1.0,
+    "n_activity_transfer": 1.0,
+    "temperature_C": 30.0,
+    "pH": 6.5,
+    "ammonia_observation": "NH4",
+    "illustrative_endpoint_hours": null
+  },
+  "design": {
+    "q_fraction_points": 41,
+    "relative_exposure_min": 0.25,
+    "relative_exposure_max": 4.0,
+    "relative_exposure_points": 16,
+    "target_gln_removal_fraction": 0.2,
+    "max_peak_ammonia_to_initial": 1.05,
+    "max_endpoint_ammonia_to_initial": 1.0
+  }
+}

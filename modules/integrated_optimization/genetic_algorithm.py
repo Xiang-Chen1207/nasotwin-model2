@@ -142,7 +142,7 @@ def minimize(evaluate, lower, upper, *, seed, population_size=96, generations=20
             "seed": int(seed),
             "population_size": int(population_size),
             "generations": int(generations),
-            "initialization": "independent uniform within bounds; no baseline seeding",
+            "initialization": "independent uniform sampling within bounds",
             "selection": "binary tournament; feasibility-first ranking",
             "survival": "elitist parent-plus-offspring ranking",
             "crossover": "bounded simulated binary crossover",

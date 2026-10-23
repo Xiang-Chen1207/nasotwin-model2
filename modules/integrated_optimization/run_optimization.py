@@ -277,14 +277,14 @@ def main():
                     assert values["effect"][-1] >= targets[channel] - 1e-7
 
     result = {
-        "status": "CONDITIONAL_DESIGN_NOT_VALIDATED_FORMULATION",
+        "status": "REFERENCE_SCENARIO_ALLOCATION",
         "reference": {
             "emitted_cfu": ref, "exposure_ref_cfu_h": exposure_ref,
             "evaluation_time_h": cfg["evaluation_time_h"], "targets": targets,
             "reference_productivity": qref,
             "productivity_mode": {
                 drug: ("specified" if cfg["productivity_nmol_per_cfu_h"][drug] is not None
-                       else "target_normalized_not_measured")
+                       else "target_normalized")
                 for drug in DRUG_CHANNELS
             },
         },

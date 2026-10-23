@@ -1,0 +1,348 @@
+{
+  "status": "NOMINAL_SCENARIO_GA_COMPARISON",
+  "reference": {
+    "emitted_cfu": 1000000.0,
+    "exposure_ref_cfu_h": 31872.08922315291,
+    "evaluation_time_h": 24.0,
+    "targets": {
+      "E01": 0.2,
+      "E02": 0.2,
+      "E03": 0.2,
+      "E04": 0.2
+    },
+    "reference_productivity": {
+      "NAC": 0.766341061834718,
+      "SFN": 0.0006274975464630552
+    },
+    "productivity_mode": {
+      "NAC": "target_normalized",
+      "SFN": "target_normalized"
+    }
+  },
+  "scenario": {
+    "name": "nominal",
+    "eta_q": 1.0,
+    "eta_n": 1.0,
+    "nh3_factor": 1.0,
+    "exposure_factor": 1.0,
+    "production_factor": 1.0,
+    "nu": 1.0
+  },
+  "method": {
+    "algorithm": "real-coded GA, SBX crossover, polynomial mutation, elitist survival",
+    "constraint_handling": "feasibility first; normalized sum of positive violations",
+    "variables": [
+      "Q",
+      "NH3",
+      "NAC",
+      "SFN"
+    ],
+    "objective": "sum of four nonnegative emitted strain doses in reference units",
+    "seeds": [
+      2026,
+      2027,
+      2028
+    ],
+    "population_size": 96,
+    "generations": 200,
+    "lower_ref": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "upper_ref": [
+      3.5999999999999996,
+      3.5999999999999996,
+      3.5999999999999996,
+      3.5999999999999996
+    ],
+    "metabolic_total_bounds_ref": [
+      0.25,
+      6.0
+    ],
+    "search_inward_normalized_margin": 1e-06,
+    "initialization": "independent uniform-random population initialization",
+    "drug_variables": "NAC and SFN doses are independent search variables",
+    "search_evaluator": "full retention history, midpoint metabolic integration, dynamic PD quadrature",
+    "final_evaluator": "adaptive metabolic ODE with ammonia extrema; full PK-PD trajectories",
+    "domain_interpretation": "Continuous relaxation of the original metabolic grid within its same ratio and dose ranges; nonnegative drug doses capped by the feasible baseline total; every lower-total nonnegative allocation lies within these dose caps."
+  },
+  "constraints": {
+    "gln_removal_min": 0.2,
+    "ammonia_peak_max": 4.2,
+    "ammonia_end_max": 4.0,
+    "response_min": {
+      "E01": 0.2,
+      "E02": 0.2,
+      "E03": 0.2,
+      "E04": 0.2
+    }
+  },
+  "baseline": {
+    "allocations_ref": {
+      "Q": 0.6399999999999999,
+      "NH3": 0.9599999999999996,
+      "NAC": 1.0,
+      "SFN": 0.9999999999999999
+    },
+    "allocations_cfu": {
+      "Q": 639999.9999999999,
+      "NH3": 959999.9999999997,
+      "NAC": 1000000.0,
+      "SFN": 999999.9999999999
+    },
+    "fractions": {
+      "Q": 0.17777777777777776,
+      "NH3": 0.2666666666666666,
+      "NAC": 0.2777777777777778,
+      "SFN": 0.2777777777777778
+    },
+    "total_ref": 3.5999999999999996,
+    "total_cfu": 3599999.9999999995,
+    "metabolic_q_fraction": 0.4,
+    "metrics": {
+      "gln_removal": 0.20508613239979523,
+      "ammonia_peak": 4.0917061349311545,
+      "ammonia_end": 3.993039322940295,
+      "bcaa_end": 1.323007908648827,
+      "nitrogen_error": 2.1316282072803006e-14,
+      "E01": 0.6278752568281726,
+      "E02": 0.19999999999999957,
+      "E03": 0.19999999999999957,
+      "E04": 0.38222678649761005
+    },
+    "all_targets_met": true
+  },
+  "runs": [
+    {
+      "seed": 2026,
+      "evaluations": 19296,
+      "search_violation": 0.0,
+      "algorithm_settings": {
+        "seed": 2026,
+        "population_size": 96,
+        "generations": 200,
+        "initialization": "independent uniform sampling within bounds",
+        "selection": "binary tournament; feasibility-first ranking",
+        "survival": "elitist parent-plus-offspring ranking",
+        "crossover": "bounded simulated binary crossover",
+        "crossover_probability_per_pair": 0.9,
+        "crossover_probability_per_variable": 0.5,
+        "crossover_eta": 15.0,
+        "mutation": "bounded polynomial mutation",
+        "mutation_probability_per_variable": 0.25,
+        "mutation_eta": 20.0,
+        "random_resets": false
+      },
+      "allocations_ref": {
+        "Q": 0.6069893212345907,
+        "NH3": 0.9533409330958658,
+        "NAC": 1.0001220276019223,
+        "SFN": 1.000092061529861
+      },
+      "allocations_cfu": {
+        "Q": 606989.3212345907,
+        "NH3": 953340.9330958658,
+        "NAC": 1000122.0276019223,
+        "SFN": 1000092.061529861
+      },
+      "fractions": {
+        "Q": 0.1704765515276128,
+        "NH3": 0.2677514562756003,
+        "NAC": 0.280890204172942,
+        "SFN": 0.280881788023845
+      },
+      "total_ref": 3.5605443434622392,
+      "total_cfu": 3560544.343462239,
+      "metabolic_q_fraction": 0.38901336402981695,
+      "metrics": {
+        "gln_removal": 0.20000987925987024,
+        "ammonia_peak": 4.080787910379894,
+        "ammonia_end": 3.981871557164922,
+        "bcaa_end": 1.2999729061602814,
+        "nitrogen_error": 1.4210854715202004e-14,
+        "E01": 0.6279019364182851,
+        "E02": 0.200018584228606,
+        "E03": 0.20001402013692376,
+        "E04": 0.38224385219123996
+      },
+      "all_targets_met": true
+    },
+    {
+      "seed": 2027,
+      "evaluations": 19296,
+      "search_violation": 0.0,
+      "algorithm_settings": {
+        "seed": 2027,
+        "population_size": 96,
+        "generations": 200,
+        "initialization": "independent uniform sampling within bounds",
+        "selection": "binary tournament; feasibility-first ranking",
+        "survival": "elitist parent-plus-offspring ranking",
+        "crossover": "bounded simulated binary crossover",
+        "crossover_probability_per_pair": 0.9,
+        "crossover_probability_per_variable": 0.5,
+        "crossover_eta": 15.0,
+        "mutation": "bounded polynomial mutation",
+        "mutation_probability_per_variable": 0.25,
+        "mutation_eta": 20.0,
+        "random_resets": false
+      },
+      "allocations_ref": {
+        "Q": 0.5990329598473111,
+        "NH3": 0.9636570677669907,
+        "NAC": 1.0001613507600537,
+        "SFN": 1.0003945723575252
+      },
+      "allocations_cfu": {
+        "Q": 599032.9598473111,
+        "NH3": 963657.0677669906,
+        "NAC": 1000161.3507600537,
+        "SFN": 1000394.5723575251
+      },
+      "fractions": {
+        "Q": 0.16811440134360395,
+        "NH3": 0.27044360144970014,
+        "NAC": 0.28068827260004975,
+        "SFN": 0.28075372460664605
+      },
+      "total_ref": 3.563245950731881,
+      "total_cfu": 3563245.950731881,
+      "metabolic_q_fraction": 0.3833344740555051,
+      "metrics": {
+        "gln_removal": 0.20000035355281165,
+        "ammonia_peak": 4.075363754748274,
+        "ammonia_end": 3.9715905889094874,
+        "bcaa_end": 1.3038119811566373,
+        "nitrogen_error": 2.1316282072803006e-14,
+        "E01": 0.6279105330049194,
+        "E02": 0.20002457274378083,
+        "E03": 0.20006008572319345,
+        "E04": 0.38229991876184166
+      },
+      "all_targets_met": true
+    },
+    {
+      "seed": 2028,
+      "evaluations": 19296,
+      "search_violation": 0.0,
+      "algorithm_settings": {
+        "seed": 2028,
+        "population_size": 96,
+        "generations": 200,
+        "initialization": "independent uniform sampling within bounds",
+        "selection": "binary tournament; feasibility-first ranking",
+        "survival": "elitist parent-plus-offspring ranking",
+        "crossover": "bounded simulated binary crossover",
+        "crossover_probability_per_pair": 0.9,
+        "crossover_probability_per_variable": 0.5,
+        "crossover_eta": 15.0,
+        "mutation": "bounded polynomial mutation",
+        "mutation_probability_per_variable": 0.25,
+        "mutation_eta": 20.0,
+        "random_resets": false
+      },
+      "allocations_ref": {
+        "Q": 0.599701439349514,
+        "NH3": 0.9628258330500952,
+        "NAC": 1.0000049773239332,
+        "SFN": 1.000055752280217
+      },
+      "allocations_cfu": {
+        "Q": 599701.4393495141,
+        "NH3": 962825.8330500951,
+        "NAC": 1000004.9773239333,
+        "SFN": 1000055.7522802169
+      },
+      "fractions": {
+        "Q": 0.16833308791592377,
+        "NH3": 0.2702602244515949,
+        "NAC": 0.2806962176826188,
+        "SFN": 0.2807104699498625
+      },
+      "total_ref": 3.5625880020037592,
+      "total_cfu": 3562588.002003759,
+      "metabolic_q_fraction": 0.38380222217084164,
+      "metrics": {
+        "gln_removal": 0.20000476625878205,
+        "ammonia_peak": 4.07580497927361,
+        "ammonia_end": 3.9724308274758546,
+        "bcaa_end": 1.3035175514436577,
+        "nitrogen_error": 2.1316282072803006e-14,
+        "E01": 0.6278763451278065,
+        "E02": 0.20000075804285145,
+        "E03": 0.20000849063622944,
+        "E04": 0.38223712162897405
+      },
+      "all_targets_met": true
+    }
+  ],
+  "best": {
+    "seed": 2026,
+    "evaluations": 19296,
+    "search_violation": 0.0,
+    "algorithm_settings": {
+      "seed": 2026,
+      "population_size": 96,
+      "generations": 200,
+      "initialization": "independent uniform sampling within bounds",
+      "selection": "binary tournament; feasibility-first ranking",
+      "survival": "elitist parent-plus-offspring ranking",
+      "crossover": "bounded simulated binary crossover",
+      "crossover_probability_per_pair": 0.9,
+      "crossover_probability_per_variable": 0.5,
+      "crossover_eta": 15.0,
+      "mutation": "bounded polynomial mutation",
+      "mutation_probability_per_variable": 0.25,
+      "mutation_eta": 20.0,
+      "random_resets": false
+    },
+    "allocations_ref": {
+      "Q": 0.6069893212345907,
+      "NH3": 0.9533409330958658,
+      "NAC": 1.0001220276019223,
+      "SFN": 1.000092061529861
+    },
+    "allocations_cfu": {
+      "Q": 606989.3212345907,
+      "NH3": 953340.9330958658,
+      "NAC": 1000122.0276019223,
+      "SFN": 1000092.061529861
+    },
+    "fractions": {
+      "Q": 0.1704765515276128,
+      "NH3": 0.2677514562756003,
+      "NAC": 0.280890204172942,
+      "SFN": 0.280881788023845
+    },
+    "total_ref": 3.5605443434622392,
+    "total_cfu": 3560544.343462239,
+    "metabolic_q_fraction": 0.38901336402981695,
+    "metrics": {
+      "gln_removal": 0.20000987925987024,
+      "ammonia_peak": 4.080787910379894,
+      "ammonia_end": 3.981871557164922,
+      "bcaa_end": 1.2999729061602814,
+      "nitrogen_error": 1.4210854715202004e-14,
+      "E01": 0.6279019364182851,
+      "E02": 0.200018584228606,
+      "E03": 0.20001402013692376,
+      "E04": 0.38224385219123996
+    },
+    "all_targets_met": true
+  },
+  "reduction_vs_grid_percent": 1.0959904593822334,
+  "accepted_seed_total_range_ref": [
+    3.5605443434622392,
+    3.563245950731881
+  ],
+  "elapsed_seconds": 82.66063859999122,
+  "method_scope": [
+    "Reference-scenario comparison; stress scenarios and common-feasible allocations are reported separately.",
+    "Continuous search refines feasible allocations between grid points; the comparison measures total dose relative to that grid baseline.",
+    "Three independent seeds describe numerical search repeatability; the reported result is the best feasible solution found.",
+    "Allocations use the listed reference productivity, activity transfer, WT-based NH3 retention and independent-strain dynamics.",
+    "Constraint margins quantify the remaining headroom of each feasible allocation under the configured parameters."
+  ]
+}

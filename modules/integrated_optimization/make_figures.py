@@ -187,7 +187,7 @@ def _allocation_feasibility(plt, destination, rows, summary):
         selected = [row for row in rows if row["scenario"] == name]
         if not selected:
             _panel(ax, letter, label)
-            ax.text(0.5, 0.5, "No feasible allocation\nin the specified search",
+            ax.text(0.5, 0.5, "Search-grid result:\nno feasible allocation",
                     transform=ax.transAxes, ha="center", va="center")
             ax.set_xlabel("Fraction allocated to metabolic strains")
             continue

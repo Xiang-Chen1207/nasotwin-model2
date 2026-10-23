@@ -16,7 +16,7 @@ are resolved relative to the configuration file.
 
 The parser reads Markdown sections headed `### E05` through `### E08`.
 Numeric tables use a `分组` column and replicate columns named `R1`, `R2`,
-and so on. Here `n` counts the listed observations; replicate type is unspecified in the supplied table format. Group labels begin with `Wild type` or the strain name (`Lp-Q`
+and so on. Here `n` counts the listed observations; replicate-type metadata awaits registration in the source table. Group labels begin with `Wild type` or the strain name (`Lp-Q`
 or `Lp-NH3`). `NA` denotes a missing observation.
 
 | Assay | Quantity | Role |

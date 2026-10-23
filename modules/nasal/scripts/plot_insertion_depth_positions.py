@@ -150,7 +150,7 @@ def main():
              fontsize=10, color=muted)
     fig.text(.045, .095, "Depth is measured along the nozzle axis from the current virtual entry reference.",
              fontsize=11, color=dark)
-    fig.text(.045, .057, "Markers show virtual tip positions. Nostril-plane calibration is pending; the model represents a point source with path constraints.",
+    fig.text(.045, .057, "Markers: virtual tip positions. Model: point source with path constraints. Nostril-plane calibration status: pending.",
              fontsize=9.5, color=muted)
     output = ROOT / "figures/nc04_insertion_10_15mm_positions_EN"
     fig.savefig(output.with_suffix(".png"), dpi=200, facecolor="white")

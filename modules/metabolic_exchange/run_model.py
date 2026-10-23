@@ -197,7 +197,7 @@ def parameter_table(gln, nitrogen, config):
     for key, value in nitrogen.items():
         rows.append({"parameter": key, "value": value,
                      "status": "conditional_calibration_E07_E08",
-                     "basis": "assumed initial pools and BCAA nitrogen-source fraction"})
+                     "basis": "reference-scenario initial pools and BCAA nitrogen-source fraction"})
     for key, value in config["reference"].items():
         rows.append({"parameter": key, "value": value, "status": "assumption_or_assay_mapping",
                      "basis": config["parameter_notes"].get(key, "")})
@@ -243,7 +243,7 @@ def write_results_report(gln, nitrogen, effects, curves, candidate, sensitivity,
     lines = [
         "# Metabolic Exchange：计算结果与 Wiki 文案",
         "",
-        "本报告由 `run_model.py` 自动生成。实测值、条件拟合和假设情景分别标注。",
+        "本报告由 `run_model.py` 自动生成。分别标注实测值、条件拟合和参考情景参数。",
         "实验数据为处理后的测定值；重复类型未知。端点摘要报告观测值、均值和样本 SD。",
         "",
         "## 1. 真实数据的结论",
@@ -270,7 +270,7 @@ def write_results_report(gln, nitrogen, effects, curves, candidate, sensitivity,
         f"Lp-Q {100*(-np.expm1(-gln['lambda_g_q'])):.2f}%。",
         f"- 对10个E06原始数值的残差RMSE：{gln['rmse_mM']:.4f} mM。",
         "",
-        "这些条件估计采用共同基础Gln、相同有效作用时长和一阶消耗假设。"
+        "模型条件为共同基础 Gln、相同有效作用时长和一阶消耗。"
         "模型使用两个补加水平校准有效一阶作用系数；参数表列出本模型的拟合量。",
         "",
         "![终点拟合和联合表型](figures/02_endpoint_model_and_joint_phenotype.png)",
@@ -286,7 +286,7 @@ def write_results_report(gln, nitrogen, effects, curves, candidate, sensitivity,
         f"Gln补加{ref['gln_supplement_mM']:g} mM；"
         f"氨释放系数ν={ref['ammonia_release_per_gln']:g}；"
         f"新积累BCAA的氨来源比例θ={ref['bcaa_new_n_fraction_from_ammonia']:g}。"
-        "这些起始池、ν、θ和跨实验活性迁移关系均为情景假设。",
+        "起始池、ν、θ和跨实验活性迁移关系由参考情景配置给出。",
         "",
         "τ=1表示一个归一化作用区间，其物理时长待实验记录确定。"
         "参考暴露为1，参考情景按有效菌量设置1:1分配；与喷出CFU的换算需要活性映射。",
@@ -300,7 +300,7 @@ def write_results_report(gln, nitrogen, effects, curves, candidate, sensitivity,
         "", "![条件动态](figures/03_conditional_dynamics.png)",
         "",
         "Gln实验和氨/BCAA实验分别提供参数约束。组合仿真采用共同培养环境、"
-        "线性活性混合和WT样背景活性假设；上述数值为这一参考模型的输出。",
+        "线性活性混合与 WT 样背景活性；上述数值为参考模型输出。",
         "",
         "## 4. 双菌配比与有效暴露的约束优化",
         "",
@@ -332,9 +332,9 @@ def write_results_report(gln, nitrogen, effects, curves, candidate, sensitivity,
         "",
         "黑色边界标示满足工程约束的区域，星号为上述两级目标下的网格最优方案。",
         "",
-        "## 5. 假设敏感性与可辨识性",
+        "## 5. 情景参数敏感性与可辨识性",
         "",
-        "![假设敏感性](figures/05_assumption_sensitivity.png)",
+        "![情景参数敏感性](figures/05_assumption_sensitivity.png)",
         "",
         "单参数敏感性分析在1:1有效菌量和参考暴露下逐项改变参数。",
         "θ=0、0.5、1均能重现同一组E07/E08均值，因此情景分析比较这些氮来源分配设置。"
@@ -386,7 +386,7 @@ def write_results_report(gln, nitrogen, effects, curves, candidate, sensitivity,
     lines.extend([
         "",
         "机制图建议：保留两株菌、Gln/氨/BCAA三个可测节点；用胞内有机氮池与碳骨架"
-        "表示BCAA合成过程。菌株间氨转移和具体酶途径标注为假设连接，简化收支池标注为模型变量。",
+        "表示BCAA合成过程。菌株间氨转移和具体酶途径以情景模型连接表示，简化收支池作为模型变量。",
         "",
         "模型使用说明与参数定义见上级目录的 `README.md` 和 `config.json`。",
     ])

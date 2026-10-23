@@ -81,7 +81,7 @@ def main():
         for drug in DRUG_CHANNELS
     }
     if any(q <= 0 for q in qref.values()):
-        raise ValueError("Specified production capacities must be positive.")
+        raise ValueError("Configured production capacities must be positive.")
     grid = cfg["metabolic_grid"]
     ratios, doses = np.meshgrid(
         np.arange(0, 1 + grid["ratio_step"] / 2, grid["ratio_step"]),
@@ -140,7 +140,7 @@ def main():
                 break
         result = {"name": name, "label": label, "feasible": chosen is not None}
         if chosen is None:
-            result["reason"] = "No common feasible point in the specified metabolic grid."
+            result["reason"] = "Metabolic search-grid status: no common feasible point."
             return result
         allocation = {"Q": float(nq[chosen]), "NH3": float(nn[chosen])}
         for drug in DRUG_CHANNELS:
@@ -307,7 +307,7 @@ def main():
             "Default q_ref normalizes each drug to its target requirement at the reference dose.",
             "Four PD channels are computed independently, with a separate response constraint for each.",
             "Scenario feasibility is evaluated for the finite set of listed parameter perturbations.",
-            "Dose scaling assumes the supplied linear retention model remains applicable.",
+            "Dose scaling uses the configured linear retention model within its applicability conditions.",
         ],
     }
     (out / "optimization_results.json").write_text(

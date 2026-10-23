@@ -7,7 +7,7 @@
     "reference_production_nmol_h": [1.0, 1.0],
     "activity_time_h": [0.0, 48.0],
     "relative_active_biomass": [[1.0, 1.0], [1.0, 1.0]],
-    "evidence": "Constant active biomass multiplies the specified reference production rate for each drug."
+    "evidence": "Constant active biomass multiplies the configured reference production rate for each drug."
   },
   "transport": {
     "V_nose": 1.0,
@@ -32,6 +32,6 @@
     "tau_response_h": 4.0,
     "brain_free_to_medium_equivalent_scale": [1.0, 1.0],
     "untreated_reference": "constant normalized untreated response of 1",
-    "evidence": "Specified assay duration, effect and response time constants, and exposure scaling factors define the scenario. Fit dynamic Emax and K to ELISA endpoints at the specified assay duration."
+    "evidence": "Configured assay duration, effect and response time constants, and exposure scaling factors define the reference scenario. Fit dynamic Emax and K to ELISA endpoints at the configured assay duration."
   }
 }

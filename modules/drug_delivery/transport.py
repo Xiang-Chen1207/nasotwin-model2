@@ -64,12 +64,12 @@ def simulate(boundary,p,*,mode,start,end,source=None,initial_nasal=None,method='
     if end<=start:raise ValueError('Invalid time span')
     y0=np.zeros(13)
     if mode=='external_concentration':
-        if source is not None or initial_nasal is not None:raise ValueError('Fixed boundary cannot also debit a finite donor')
+        if source is not None or initial_nasal is not None:raise ValueError('Fixed-boundary mode requires source and initial_nasal to be unset')
         if boundary is None:raise EvidenceGap('No concentration boundary')
-        if p.kf or p.kr or p.k_conjugate_loss or any(p.k_nasal_loss):raise EvidenceGap('Measured free-parent boundary already contains donor chemistry; do not apply it again')
+        if p.kf or p.kr or p.k_conjugate_loss or any(p.k_nasal_loss):raise EvidenceGap('Measured free-parent boundary uses zero additional donor-chemistry rates')
         boundary(start);boundary(end)
     else:
-        if boundary is not None:raise ValueError('Finite mode cannot fix donor concentration')
+        if boundary is not None:raise ValueError('Finite-donor mode requires boundary to be unset')
         if source is None or initial_nasal is None:raise EvidenceGap('Finite supply requires known replenishment and initial amounts')
         y0[:3]=initial_nasal
         if not np.isfinite(y0).all() or y0.min()<0:raise ValueError('Invalid initial amounts')

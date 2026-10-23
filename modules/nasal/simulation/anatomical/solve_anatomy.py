@@ -308,7 +308,7 @@ def solve(args):
         "realized_diameter_max_um": float(diameter.max() * 1e6),
         "realized_volume_median_um": float(np.median(diameter) * 1e6),
         "count_weighting": "droplet-number fractions use normalized 1/d^3 weighting of equal-volume parcels",
-        "payload_weighting": "equal parcel liquid volume; CFU conversion assumes uniform bacterial concentration and equal post-spray viability, both supplied as mapping assumptions",
+        "payload_weighting": "equal parcel liquid volume; CFU conversion uses uniform bacterial concentration and equal post-spray viability as configured mapping conditions",
         "airflow_interpolation": "VTK source-cell interpolation to masked Cartesian grid; trilinear only for eight valid corners; original-cell fallback otherwise",
         "grid_spacing_m": args.spacing_m,
         "grid_lookup_queries": flow.grid_queries,

@@ -45,7 +45,7 @@ def make_handoff(archive_path, config, roi_config, mucus_overrides=None):
             'spray_handoff_time_s': handoff_time,
             'initial_cfu_expected': [fraction*s['emitted_cfu']*s['post_spray_culturability']
                                      for s in cfg['strains']],
-            'assumption': 'Uniform bacterial concentration and strain survival across parcels; instantaneous handoff at end of flight; projected local strip with zero inflow from other nasal regions.',
+            'assumption': 'Model conditions: uniform bacterial concentration and strain survival across parcels; instantaneous handoff at flight completion; a projected local strip with zero inflow from other nasal regions.',
             'mucus': cfg['mucus'], 'biology': cfg['biology'], 'strains': cfg['strains']}
     return cfg, source, meta
 

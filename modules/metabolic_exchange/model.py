@@ -145,12 +145,12 @@ def calibrate_ammonia_bcaa(obs, reference):
         a_end = group_mean(obs, "E08", strain) / observation_fraction
         b_end = group_mean(obs, "E07", strain)
         if not 0 < a_end < a0 or not b0 <= b_end:
-            raise ValueError("Assumed starting pools incompatible with removal/accumulation model")
+            raise ValueError("Starting pools must satisfy the configured removal/accumulation constraints")
         newly_b = b_end - b0
         yield_n = theta * newly_b / (a0 - a_end)
         organic_used = (1 - theta) * newly_b
         if not 0 <= yield_n <= 1 or not 0 <= organic_used < o0:
-            raise ValueError("Assumed nitrogen allocation exceeds available substrate")
+            raise ValueError("Nitrogen allocation must remain within available substrate")
         result[f"lambda_a_{suffix}"] = float(np.log(a0 / a_end))
         result[f"yield_b_{suffix}"] = float(yield_n)
         result[f"lambda_o_{suffix}"] = float(-np.log1p(-organic_used / o0))

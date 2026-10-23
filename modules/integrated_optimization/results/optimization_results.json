@@ -433,6 +433,6 @@
     "Default q_ref normalizes each drug to its target requirement at the reference dose.",
     "Four PD channels are computed independently, with a separate response constraint for each.",
     "Scenario feasibility is evaluated for the finite set of listed parameter perturbations.",
-    "Dose scaling assumes the supplied linear retention model remains applicable."
+    "Dose scaling uses the configured linear retention model within its applicability conditions."
   ]
 }
